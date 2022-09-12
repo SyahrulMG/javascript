@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tugas - JavaScript 1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body>
+
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 col-md-10 col-lg-8 table-responsive m-auto card  overflow-hidden pt-3">
+                <table class="table">
+                    <thead class="bg-dark text-white rounded">
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Nama Pegawai</th>
+                            <th scope="col">Jabatan</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Gaji Pokok</th>
+                            <th scope="col">Tunjangan Jabatan</th>
+                            <th scope="col">BPJS</th>
+                            <th scope="col">Tunjangan Keluarga</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="row">
+                        </tr>
+                    </tbody>
+                    <tfoot class="bg-dark text-white rounded">
+                        <tr>
+                            <td colspan="7">Total Gaji</td>
+                            <td id="total"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        let nama = "Ridwan";
+        let jabatan = "Manager";
+        let status = "Menikah";
+        let gapok = 0;
+        if (jabatan == "Manager") {
+            gapok = 15000000;
+        } else if (jabatan == "Asisten Manager") {
+            gapok = 10000000;
+        } else if (jabatan == "Staff") {
+            gapok = 5000000;
+        }
+        let tunjab = 0.15 * gapok;
+        let bpjs = 0.1 * gapok;
+        let tunjak = (status == "Menikah") ? 0.2 * gapok : 0;
+        let gaji = gapok + tunjab + bpjs + tunjak;
+        document.getElementById("row").innerHTML = `
+                            <th scope="row">1</th>
+                            <td > ${nama} </td>
+                            <td > ${jabatan} </td>
+                            <td > ${status} </td>
+                            <td > ${gapok} </td>
+                            <td > ${tunjab} </td>
+                            <td > ${bpjs} </td>
+                            <td > ${tunjak} </td>
+        `;
+        document.getElementById("total").innerHTML = gaji;
+    </script>
+</body>
+
+</html>
